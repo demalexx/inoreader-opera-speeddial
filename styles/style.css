@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: arial, sans-serif;
+    font-size: 0.7em;
+}
+
+#inoreader-title {
+    margin: 5px;
+}
+
+#inoreader-center-logo {
+    margin-top: 15%;
+    text-align: center;
+}
+
+#content ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#content li {
+    padding: 2px 4px;
+    background-color: #f0f5f8;
+    border-bottom: 1px solid #cbdae2;
+}
+
+#content li:first-child {
+    border-top: 1px solid #cbdae2;
+}
+
+#content li .feed-icon {
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+#content li span {
+    display: inline-block;
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#content li .unread-count {
+    float: right;
+    font-weight: bold;
+}
