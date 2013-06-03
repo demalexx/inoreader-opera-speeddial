@@ -60,10 +60,10 @@ function updateData() {
             return;
         }
 
-        // Remove folders, leave only subscriptions
+        // Remove folders, leave only subscriptions, and remove empty subscriptions
         var subscriptions = [];
         for (var i = 0; i < resp_json.length; i++) {
-            if (resp_json[i]['type'] == 'subscription') {
+            if (resp_json[i]['type'] == 'subscription' && resp_json[i]['unread_cnt'] > 0) {
                 subscriptions.push(resp_json[i]);
             }
         }

@@ -46,4 +46,5 @@ body {
 #content li .unread-count {
     float: right;
     font-weight: bold;
+    color: gray;
 }
