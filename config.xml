@@ -3,7 +3,7 @@
 <widget xmlns="http://www.w3.org/ns/widgets"
         id="http://www.example.org/helloworld"
         viewmodes="minimized"
-        version="0.2">
+        version="0.3">
     <name>InoReader on speeddial</name>
     <description>Shows subscriptions names and number of unread items on InoReader</description>
     <author email="demalexx@gmail.com">demalexx</author>

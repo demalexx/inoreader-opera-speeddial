@@ -31,16 +31,21 @@ body {
 }
 
 #content li .feed-icon {
+    width: 16px;
+    height: 16px;
     margin-right: 4px;
-    vertical-align: middle;
+    margin-bottom: -4px
 }
 
 #content li span {
     display: inline-block;
-    width: 90%;
+    width: 85%;
+    padding-top: 1px;
+    padding-bottom: 1px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    vertical-align: top;
 }
 
 #content li .unread-count {

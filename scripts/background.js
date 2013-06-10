@@ -86,14 +86,17 @@ function updateData() {
         }
 
         var out_html = '<ul>';
-        for (i = 0; i < out.length; i++) {
+        var preload_feed_icons = {};
+        for (i = 0; i < Math.min(out.length, 10); i++) {
+            var icon_id = get_feed_icon_id(out[i]['id']);
+
             out_html += '<li>';
-            out_html +=     '<span>';
-            out_html +=         '<img class="feed-icon" src="/icons/feed-icon.png" />';
-            out_html +=         htmlEncode(out[i]['title']);
-            out_html +=     '</span>';
+            out_html +=     '<img id="' + icon_id + '" class="feed-icon" src="/icons/feed-icon.png" />';
+            out_html +=     '<span>' + htmlEncode(out[i]['title']) + '</span>';
             out_html +=     '<div class="unread-count">' + out[i]['unread_cnt'] + '</div>';
             out_html += '</li>';
+
+            preload_feed_icons[out[i]['id']] = out[i]['icon'];
         }
         out_html += '</ul>';
 
@@ -102,6 +105,20 @@ function updateData() {
         switch_mode('i');
 
         opera.contexts.speeddial.title = 'InoReader (' + unread_total + ')';
+
+        // Load feeds icons and update default icon only after feed icon is
+        // loaded (to avoid empty rectangle with "img" text)
+        for (var id in preload_feed_icons) {
+            if (!preload_feed_icons.hasOwnProperty(id)) {
+                return;
+            }
+
+            // Create Image object to load icon in background
+            var img = new Image();
+            img.setAttribute('data-feed-id', id);
+            img.addEventListener('load', feed_icon_load, false);
+            img.setAttribute('src', preload_feed_icons[id]);
+        }
     }
 
     var xhr = new XMLHttpRequest();
@@ -117,4 +134,13 @@ function htmlEncode(text) {
    var text_node = document.createTextNode(text);
    div.appendChild(text_node);
    return div.innerHTML;
+}
+
+function get_feed_icon_id(id) {
+    return 'feed-' + id + '-icon';
+}
+
+function feed_icon_load() {
+    var feed_icon = document.querySelector('#' + get_feed_icon_id(this.getAttribute('data-feed-id')));
+    feed_icon.setAttribute('src', this.getAttribute('src'));
 }
