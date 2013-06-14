@@ -63,21 +63,21 @@ function updateData() {
         // Remove folders, leave only subscriptions, and remove empty subscriptions
         var subscriptions = [];
         for (var i = 0; i < resp_json.length; i++) {
-            if (resp_json[i]['type'] == 'subscription' && resp_json[i]['unread_cnt'] > 0) {
+            if (resp_json[i]['type'] == 'subscription' && parseInt(resp_json[i]['unread_cnt']) > 0) {
                 subscriptions.push(resp_json[i]);
             }
         }
 
         // Sort subscriptions by number of unread items
         subscriptions.sort(function(a, b) {
-            return b['unread_cnt'] - a['unread_cnt'];
+            return parseInt(b['unread_cnt']) - parseInt(a['unread_cnt']);
         });
 
         var out = [];
         var unread_total = 0;
         for (i = 0; i < subscriptions.length; i++) {
             out.push(subscriptions[i]);
-            unread_total += subscriptions[i]['unread_cnt'];
+            unread_total += parseInt(subscriptions[i]['unread_cnt']);
         }
 
         if (unread_total == 0) {
