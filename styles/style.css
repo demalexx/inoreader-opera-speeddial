@@ -9,6 +9,12 @@ body {
     margin: 5px;
 }
 
+#loading {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
 #inoreader-center-logo {
     margin-top: 15%;
     text-align: center;
