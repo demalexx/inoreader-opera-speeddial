@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "InoReader on speeddial",
+    "description": "Shows subscriptions names and number of unread items on InoReader",
+    "version": "0.7",
+    "developer": {
+        "name": "demalexx"
+    },
+    "background": {
+        "page": "index.html"
+    },
+    "icons": {
+        "128": "icons/extension-icon.png"
+    },
+    "permissions": ["tabs", "speeddial", "https://www.inoreader.com/*"],
+    "speeddial": {
+        "url": "https://www.inoreader.com/"
+    }
+}
