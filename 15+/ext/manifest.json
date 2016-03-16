@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "InoReader on speeddial",
     "description": "Shows subscriptions names and number of unread items on InoReader",
-    "version": "0.7",
+    "version": "0.8",
     "developer": {
         "name": "demalexx"
     },
